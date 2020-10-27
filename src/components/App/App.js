@@ -1,11 +1,10 @@
+import Header from '../Header';
 import './App.css';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      Hola mundo...
+      <Header />
     </div>
   );
 }
-
-export default App;
