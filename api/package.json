@@ -1,0 +1,15 @@
+{
+  "name": "ml-challenge-api",
+  "version": "1.0.0",
+  "description": "API for the Mercadolibre challenge",
+  "main": "api.js",
+  "scripts": {
+    "start": "node api.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luis Saturno",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
