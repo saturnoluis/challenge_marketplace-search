@@ -4,6 +4,9 @@
   "description": "Mercadolibre challenge",
   "main": "index.js",
   "scripts": {
+    "install:front": "cd ./front && npm install",
+    "install:api": "cd ./api && npm install",
+    "install": "npm run install:api & npm run install:front",
     "start:front": "cd ./front && npm run start",
     "start:api": "cd ./api && npm run start",
     "start": "npm run start:api & npm run start:front",
