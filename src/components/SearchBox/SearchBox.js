@@ -1,16 +1,19 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import './SearchBox.css';
 
 export default function SearchBox() {
   const history = useHistory();
-  const [ text, setText ] = useState('');
+  const { search: searchParam } = useLocation();
+  const search = new URLSearchParams(searchParam).get('search');
+
+  const [ userInput, setUserInput ] = useState(search || '');
 
   const handleSubmit = (event) => {
     event.preventDefault();
     history.push({
       pathname: '/items',
-      search: `?search=${text}`
+      search: `?search=${userInput}`
     });
   }
   
@@ -19,8 +22,8 @@ export default function SearchBox() {
         <input
           className="SearchBox__input"
           type="text"
-          value={text}
-          onChange={e => setText(e.target.value)}
+          value={userInput}
+          onChange={e => setUserInput(e.target.value)}
           placeholder="Nunca dejes de buscar"
         />
         <button className="SearchBox__button" type="submit">🔎</button>
