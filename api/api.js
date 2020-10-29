@@ -1,11 +1,27 @@
 const express = require('express');
-const app = express();
-const port = 4000;
+const cors = require('cors');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+function startAPI() {
+  const app = express();
+  const port = 4000;
+  
+  app.use(cors());
+  
+  app.get('/api', (req, res) => {
+    res.send('Hello World!');
+  });
+  
+  app.get('/api/items', (req, res) => {
+    console.log(req.originalUrl);
+  
+    setTimeout(() => {
+      res.send({ data: 'foo bar' });
+    }, 2000);
+  });
+  
+  app.listen(port, () => {
+    console.log(`Search API running on http://localhost:${port}`)
+  });
+}
 
-app.listen(port, () => {
-  console.log(`Search API running on http://localhost:${port}`)
-});
+startAPI();
