@@ -15,7 +15,7 @@ function startAPI() {
     console.log(req.originalUrl);
   
     setTimeout(() => {
-      res.send({ data: 'foo bar' });
+      res.send([]);
     }, 2000);
   });
   

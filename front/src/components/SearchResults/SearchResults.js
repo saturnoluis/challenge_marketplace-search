@@ -1,35 +1,26 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import isEmpty from 'lodash/isEmpty';
-import Items from '../Items';
+import ItemsRenderer from '../ItemsRenderer';
 import './SearchResults.css';
 
 export default function SearchResults() {
   const { search: searchParam } = useLocation();
-  const search = new URLSearchParams(searchParam).get('search');
+  const searchQuery = new URLSearchParams(searchParam).get('search');
 
-  const [ searchResults, setSearchResults ] = useState({ items: [] });
+  const [ searchResults, setSearchResults ] = useState([]);
+  const [ loading, setLoading ] = useState(false);
 
   useEffect(() => {
-    fetch(`/api/items?q=${search}`)
+    setLoading(true);
+    fetch(`/api/items?q=${searchQuery}`)
       .then(res => res.json())
       .then(data => {
+        setLoading(false);
         setSearchResults(data);
       });
-  }, []);
-
-  if(isEmpty(searchResults.data)) {
-    return(
-      <div>Loading...</div>
-    );
-  }
-
-  console.log({ data: searchResults.data });
+  }, [searchQuery]);
 
   return(
-    <div className="SearchResults">
-      <section>Breadcrumb</section>
-      <Items />
-    </div>
+    <ItemsRenderer loading={loading} items={searchResults} />
   );
 }
