@@ -1,5 +1,5 @@
 import Header from '../Header';
-import SearchResults from '../SearchResults';
+import SearchResultsContainer from '../SearchResultsContainer';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 
@@ -13,7 +13,7 @@ export default function App() {
               <span>Inicio</span>
             </Route>
             <Route path="/items">
-              <SearchResults />
+              <SearchResultsContainer />
             </Route>
           </Switch>
       </main>

@@ -1,9 +1,9 @@
 import './Items.css';
 
-export default function Items() {
-    return(
+export default function Items({ items }) {
+    return (
         <ul className="Items">
-            <li>These are the items</li>
+            <li>{JSON.stringify(items)}</li>
         </ul>
     );
 }

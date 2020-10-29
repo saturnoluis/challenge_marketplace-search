@@ -1,27 +1,25 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import ItemsRenderer from '../ItemsRenderer';
+import Breadcrumb from '../Breadcrumb';
+import Items from '../Items';
 import './SearchResults.css';
 
-export default function SearchResults() {
-  const { search: searchParam } = useLocation();
-  const searchQuery = new URLSearchParams(searchParam).get('search');
+const searchResultsFallback = {
+  categories: [],
+  items: []
+};
 
-  const [ searchResults, setSearchResults ] = useState({});
-  const [ loading, setLoading ] = useState(false);
+export default function SearchResults(props) {
+  console.log(props);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(`/api/items?q=${searchQuery}`)
-      .then(res => res.json())
-      .then(data => {
-        setLoading(false);
-        setSearchResults(data);
-      });
-  }, [searchQuery]);
+  const { loading, searchResults = searchResultsFallback } = props;
 
+  if(loading) {
+    return(<p>Loading items...</p>);
+  }
 
-  return(
-    <ItemsRenderer loading={loading} items={searchResults} />
+  return (
+    <div className="SearchResults">
+      <Breadcrumb trail={searchResults.categories} />
+      <Items items={searchResults.items} />
+    </div>
   );
 }
