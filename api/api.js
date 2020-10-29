@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const fetch = require('node-fetch');
 
 function startAPI() {
   const app = express();
@@ -12,7 +13,11 @@ function startAPI() {
   });
   
   app.get('/api/items', (req, res) => {
-    console.log(req.originalUrl);
+    const apiURL = `https://api.mercadolibre.com/sites/MLA/search?`;
+    const searchQuery = req.query["q"];
+    const fetchURL = apiURL + new URLSearchParams({ q: searchQuery });
+    
+    fetch(fetchURL).then(res => res.json()).then(data => console.log(JSON.stringify(data)));
   
     setTimeout(() => {
       res.send([]);
