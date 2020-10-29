@@ -19,7 +19,9 @@ function resultToItem(result) {
 
 function getCategoriesFromFilters(filters) {
   const categoryFilter = filters.find(filter => filter.id === 'category');
-  return categoryFilter.values[0].path_from_root;
+  const categories = categoryFilter ? categoryFilter.values[0].path_from_root : [];
+
+  return categories;
 }
 
 function searchResponseFormatter(data) {
