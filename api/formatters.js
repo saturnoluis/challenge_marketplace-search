@@ -35,7 +35,7 @@ function searchResponseFormatter(data) {
     items: data.results.slice(0, ITEMS_RESULTS_LIMIT).map(resultToItem)
   };
 
-  return [formatted];
+  return formatted;
 }
 
 module.exports = { searchResponseFormatter };

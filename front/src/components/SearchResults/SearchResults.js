@@ -7,7 +7,7 @@ export default function SearchResults() {
   const { search: searchParam } = useLocation();
   const searchQuery = new URLSearchParams(searchParam).get('search');
 
-  const [ searchResults, setSearchResults ] = useState([]);
+  const [ searchResults, setSearchResults ] = useState({});
   const [ loading, setLoading ] = useState(false);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ export default function SearchResults() {
         setSearchResults(data);
       });
   }, [searchQuery]);
+
 
   return(
     <ItemsRenderer loading={loading} items={searchResults} />
