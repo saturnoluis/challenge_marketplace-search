@@ -1,3 +1,5 @@
+const { get } = require('lodash');
+
 const AUTHOR_NAME = "Luis";
 const AUTHOR_LASTNAME = "Saturno";
 const ITEMS_RESULTS_LIMIT = 4;
@@ -19,9 +21,8 @@ function resultToItem(result) {
 
 function getCategoriesFromFilters(filters) {
   const categoryFilter = filters.find(filter => filter.id === 'category');
-  const categories = categoryFilter ? categoryFilter.values[0].path_from_root : [];
 
-  return categories;
+  return get(categoryFilter, 'values[0].path_from_root', []);
 }
 
 function searchResponseFormatter(data) {
