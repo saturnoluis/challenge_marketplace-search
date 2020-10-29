@@ -11,16 +11,14 @@ export default function SearchResultsContainer() {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/api/items?q=${searchQuery}`)
-      .then(res => res.json())
-      .then(data => {
-        setLoading(false);
-        setSearchResults(data);
-      });
+    fetch(`/api/items?q=${searchQuery}`).then(res => res.json()).then(data => {
+      setLoading(false);
+      setSearchResults(data);
+    });
   }, [searchQuery]);
 
 
-  return(
+  return (
     <SearchResults loading={loading} searchResults={searchResults} />
   );
 }

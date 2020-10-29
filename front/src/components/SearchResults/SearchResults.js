@@ -8,12 +8,12 @@ const searchResultsFallback = {
 };
 
 export default function SearchResults(props) {
-  console.log(props);
-
   const { loading, searchResults = searchResultsFallback } = props;
 
-  if(loading) {
-    return(<p>Loading items...</p>);
+  if (loading) {
+    return (
+      <p>Loading items...</p>
+    );
   }
 
   return (

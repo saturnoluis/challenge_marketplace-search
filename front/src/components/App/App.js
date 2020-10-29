@@ -9,13 +9,13 @@ export default function App() {
       <main className="App">
         <Header />
         <Switch>
-            <Route exact path="/">
-              <span>Inicio</span>
-            </Route>
-            <Route path="/items">
-              <SearchResultsContainer />
-            </Route>
-          </Switch>
+          <Route exact path="/">
+            <span>Inicio</span>
+          </Route>
+          <Route path="/items">
+            <SearchResultsContainer />
+          </Route>
+        </Switch>
       </main>
     </Router>
   );
