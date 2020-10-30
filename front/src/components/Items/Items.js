@@ -1,18 +1,6 @@
 import { Link } from 'react-router-dom';
+import PriceTag from '../PriceTag';
 import './Items.css';
-
-function ItemPrice({ data }) {
-  return (
-    <p>{JSON.stringify(data)}</p>
-  );
-}
-
-function ItemCondition({ condition }) {
-  return (
-    <p>{condition}</p>
-  );
-}
-
 
 function renderItem(item) {
   const itemURL = `/items/${item.id}`;
@@ -21,14 +9,22 @@ function renderItem(item) {
       <Link to={itemURL}>
         <img src={item.picture} alt={item.title} />
       </Link>
-      <Link to={itemURL}>{item.title}</Link>
-      <ItemPrice data={item.price} />
-      <ItemCondition condition={item.condition} />
+      <Link to={itemURL}>
+        {item.title}
+      </Link>
+      <PriceTag
+        currency={item.price.currency}
+        amount={item.price.amount}
+        decimals={item.price.decimals}
+      />
+      <i>
+        {item.condition === 'new' ? 'Nuevo' : 'Usado'}
+      </i>
     </article>
   );
 }
 
-export default function Items({ items }) {
+export default function Items({ items = [] }) {
   return (
     <div className="Items">
       {items.map(renderItem)}
