@@ -12,6 +12,13 @@ function main() {
   app.get('/api', (req, res) => {
     res.send('Hello! This is the API');
   });
+
+  app.get('/api/items/:id', (req, res) => {
+    const { id } = req.params;
+    console.log(id);
+
+    res.send({});
+  });
   
   app.get('/api/items', (req, res) => {
     const apiURL = `https://api.mercadolibre.com/sites/MLA/search?`;

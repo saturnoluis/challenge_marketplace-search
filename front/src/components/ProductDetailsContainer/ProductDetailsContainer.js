@@ -1,17 +1,22 @@
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import ProductDetails from '../ProductDetails';
 
 export default function ProductDetailsContainer() {
   const { id } = useParams();
+  const [ productDetails, setProductDetails ] = useState({});
+  const [ loading, setLoading ] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`/api/items/${id}`).then(res => res.json()).then(data => {
+      setLoading(false);
+      setProductDetails(data);
+    });
+  }, [id]);
+
 
   return (
-    <p>
-      <a href={`https://api.mercadolibre.com/items/​${id}`}>
-        items/{id}
-      </a>
-      <p>---</p>
-      <a href={`https://api.mercadolibre.com/items/​${id}/description`}>
-        /items/{id}/description  
-      </a>
-    </p>
+    <ProductDetails loading={loading} details={productDetails} />
   );
 }
