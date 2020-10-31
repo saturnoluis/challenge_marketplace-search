@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "install:front": "cd ./front && npm install",
-    "install:api": "cd ./api && npm install",
-    "install": "npm run install:api & npm run install:front",
+    "install:back": "cd ./back && npm install",
+    "install": "npm run install:back & npm run install:front",
+
     "start:front": "cd ./front && npm run start",
-    "start:api": "cd ./api && npm run start",
-    "start": "npm run start:api & npm run start:front",
+    "start:back": "cd ./back && npm run start",
+    "start": "npm run start:back & npm run start:front",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +19,7 @@
     "url": "git+https://github.com/saturnoluis/ml-challenge.git"
   },
   "author": "Luis Saturno",
-  "license": "ISC",
+  "license": "",
   "bugs": {
     "url": "https://github.com/saturnoluis/ml-challenge/issues"
   },

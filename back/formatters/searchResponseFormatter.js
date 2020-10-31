@@ -1,10 +1,5 @@
 const { get } = require('lodash');
 
-const AUTHOR_NAME = "Luis";
-const AUTHOR_LASTNAME = "Saturno";
-const ITEMS_RESULTS_LIMIT = 4;
-const DECIMALS = 0;
-
 function resultToItem(result) {
   return {
     id: result.id,
@@ -12,7 +7,7 @@ function resultToItem(result) {
     price: {
       currency: result.currency_id,
       amount: result.price,
-      decimals: DECIMALS
+      decimals: global.config.options.decimals
     },
     picture: result.thumbnail,
     condition: result.condition,
@@ -29,14 +24,14 @@ function getCategoriesFromFilters(filters) {
 function searchResponseFormatter(data) {
   const formatted = {
     author: {
-      name: AUTHOR_NAME,
-      lastname: AUTHOR_LASTNAME
+      name: global.config.author.firstName,
+      lastname: global.config.author.lastName
     },
     categories: getCategoriesFromFilters(data.filters),
-    items: data.results.slice(0, ITEMS_RESULTS_LIMIT).map(resultToItem)
+    items: data.results.slice(0, global.config.options.searchResultsLimit).map(resultToItem)
   };
 
   return formatted;
 }
 
-module.exports = { searchResponseFormatter };
+module.exports = searchResponseFormatter;

@@ -1,0 +1,10 @@
+default:
+  author:
+    firstName: Luis
+    lastName: Saturno
+  api:
+    itemsUrl: https://api.mercadolibre.com/items
+    searchUrl: https://api.mercadolibre.com/sites/MLA/search
+  options:
+    searchResultsLimit: 4
+    decimals: 0
