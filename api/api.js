@@ -11,10 +11,6 @@ function main() {
   const port = 4000;
   
   app.use(cors());
-  
-  app.get('/api', (req, res) => {
-    res.send('Hello! This is the API');
-  });
 
   app.get('/api/items/:id', (req, res) => {
     const { id } = req.params;

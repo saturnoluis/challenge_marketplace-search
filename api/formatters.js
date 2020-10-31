@@ -3,6 +3,7 @@ const { get } = require('lodash');
 const AUTHOR_NAME = "Luis";
 const AUTHOR_LASTNAME = "Saturno";
 const ITEMS_RESULTS_LIMIT = 4;
+const DECIMALS = 0;
 
 function resultToItem(result) {
   return {
@@ -11,7 +12,7 @@ function resultToItem(result) {
     price: {
       currency: result.currency_id,
       amount: result.price,
-      decimals: 0
+      decimals: DECIMALS
     },
     picture: result.thumbnail,
     condition: result.condition,
