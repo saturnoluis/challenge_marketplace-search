@@ -1,3 +1,4 @@
 module.exports = {
-  searchResponse: require('./searchResponseFormatter')
+  searchResponseFormatter: require('./searchResponseFormatter'),
+  itemDetailsFormatter: require('./itemDetailsFormatter')
 };

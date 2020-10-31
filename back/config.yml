@@ -1,7 +1,7 @@
 default:
   author:
-    firstName: Luis
-    lastName: Saturno
+    name: Luis
+    lastname: Saturno
   api:
     itemsUrl: https://api.mercadolibre.com/items
     searchUrl: https://api.mercadolibre.com/sites/MLA/search

@@ -1,4 +1,4 @@
-const { get } = require('lodash');
+const get = require('lodash/get');
 
 function resultToItem(result) {
   return {
@@ -23,10 +23,7 @@ function getCategoriesFromFilters(filters) {
 
 function searchResponseFormatter(data) {
   const formatted = {
-    author: {
-      name: global.config.author.firstName,
-      lastname: global.config.author.lastName
-    },
+    author: global.config.author,
     categories: getCategoriesFromFilters(data.filters),
     items: data.results.slice(0, global.config.options.searchResultsLimit).map(resultToItem)
   };

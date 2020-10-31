@@ -1,4 +1,4 @@
-const formatter = require('../formatters');
+const { searchResponseFormatter } = require('../formatters');
 
 function getSearchResults(searchQuery) {
   return new Promise((resolve, reject) => {
@@ -8,7 +8,7 @@ function getSearchResults(searchQuery) {
     global.fetch(fetchURL)
       .then(fetchResponse => fetchResponse.json())
       .then(data => {
-        const formattedData = formatter.searchResponse(data);
+        const formattedData = searchResponseFormatter(data);
         resolve(formattedData);
       })
       .catch(error => reject(error));
