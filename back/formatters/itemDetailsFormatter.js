@@ -9,7 +9,7 @@ function itemDetailsFormatter(info, description) {
         amount: info.price,
         decimals: global.config.options.decimals
       },
-      picture: info.pictures[0],
+      picture: info.pictures[0].url,
       condition: info.condition,
       free_shipping: info.shipping.free_shipping,
       sold_quantity: info.sold_quantity,

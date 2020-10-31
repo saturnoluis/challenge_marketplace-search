@@ -7,30 +7,33 @@ function getItemInfo(id) {
     const fetchURL = `${global.config.api.itemsUrl}?${urlParams}`;
     
     global.fetch(fetchURL)
-    .then(fetchResponse => fetchResponse.json())
-    .then(data => {
-      resolve(get(data, '[0].body', {}));
-    })
-    .catch(error => reject(error));
+      .then(fetchResponse => fetchResponse.json())
+      .then(data => {
+        resolve(get(data, '[0].body', {}));
+      })
+      .catch(error => reject(error));
   });
 }
 
 function getItemDescription(id) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({ foo: 'BAAAAAAAAAR AFTER 5 SECS' });
-    }, 5000);
+  return new Promise((resolve) => {
+    const fetchURL = `${global.config.api.itemsUrl}/${id}/description`;
+    
+    global.fetch(fetchURL)
+      .then(fetchResponse => fetchResponse.json())
+      .then(data => {
+        resolve(get(data, 'plain_text', ''));
+      })
+      .catch(e => resolve(''));
   });
 }
 
 async function getItemDetailsById(id) {
   const info = await getItemInfo(id);
-  const description = {};
+  let description = '';
 
   if(info.descriptions.length > 0) {
-    const itemDescription = await getItemDescription(id);
-
-    Object.assign(description, itemDescription);
+    description = await getItemDescription(id);
   } 
   
   return itemDetailsFormatter(info, description);
