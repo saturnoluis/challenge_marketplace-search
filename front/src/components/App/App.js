@@ -1,6 +1,6 @@
 import Header from '../Header';
 import SearchResultsContainer from '../SearchResultsContainer';
-import ProductDetailContainer from '../ProductDetailContainer';
+import ProductDetailsContainer from '../ProductDetailsContainer';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import './App.css';
 
@@ -14,7 +14,7 @@ export default function App() {
             <span>Inicio</span>
           </Route>
           <Route path="/items/:id">
-            <ProductDetailContainer />
+            <ProductDetailsContainer />
           </Route>
           <Route path="/items">
             <SearchResultsContainer />
