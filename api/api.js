@@ -3,6 +3,9 @@ const cors = require('cors');
 const fetch = require('node-fetch');
 const { searchResponseFormatter } = require('./formatters');
 
+const ITEMS_API_URL = 'https://api.mercadolibre.com/items';
+const SEARCH_API_URL = 'https://api.mercadolibre.com/sites/MLA/search';
+
 function main() {
   const app = express();
   const port = 4000;
@@ -15,16 +18,22 @@ function main() {
 
   app.get('/api/items/:id', (req, res) => {
     const { id } = req.params;
-    console.log(id);
+    const urlParams = new URLSearchParams({ ids: id });
 
-    res.send({});
+    const fetchURL = `${ITEMS_API_URL}?${urlParams}`;
+    fetch(fetchURL)
+      .then(fetchResponse => fetchResponse.json())
+      .then(data => {
+        res.send(data);
+      });
+
   });
   
   app.get('/api/items', (req, res) => {
-    const apiURL = `https://api.mercadolibre.com/sites/MLA/search?`;
     const searchQuery = req.query["q"];
-    const fetchURL = apiURL + new URLSearchParams({ q: searchQuery });
+    const urlParams = new URLSearchParams({ q: searchQuery });
     
+    const fetchURL = `${SEARCH_API_URL}?${urlParams}`;
     fetch(fetchURL)
       .then(fetchResponse => fetchResponse.json())
       .then(data => {
