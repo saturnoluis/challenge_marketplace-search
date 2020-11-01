@@ -5,7 +5,7 @@ export default function Breadcrumb({ trail = [] }) {
   return(
     <nav className="Breadcrumb">
       {trail.map(link => (
-        <Link to='/'>{link.name}</Link>
+        <Link key={link.id} to='/'>{link.name}</Link>
       ))}
     </nav>
   );
