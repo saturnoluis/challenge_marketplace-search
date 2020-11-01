@@ -1,3 +1,4 @@
+import LoadingSpinner from '../LoadingSpinner';
 import Breadcrumb from '../Breadcrumb';
 import ProductList from '../ProductList';
 import './SearchResults.css';
@@ -12,7 +13,7 @@ export default function SearchResults(props) {
 
   if (loading) {
     return (
-      <p>Loading items...</p>
+      <LoadingSpinner loading={loading} />
     );
   }
 

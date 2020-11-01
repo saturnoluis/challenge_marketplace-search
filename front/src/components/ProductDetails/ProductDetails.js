@@ -1,3 +1,4 @@
+import LoadingSpinner from '../LoadingSpinner';
 import get from 'lodash/get';
 import PriceTag from '../PriceTag';
 import './ProductDetails.css';
@@ -5,8 +6,10 @@ import './ProductDetails.css';
 export default function ProductDetails({ loading, details }) {
   const getItem = value => get(details, `item.${value}`);
   
-  if(loading) {
-    return (<p>Loading product details...</p>);
+  if (loading) {
+    return (
+      <LoadingSpinner loading={loading} />
+    );
   }
 
   return (
