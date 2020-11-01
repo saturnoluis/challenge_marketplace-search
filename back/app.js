@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const yamlConfig = require('node-yaml-config');
 const api = require('./api');
  
-function main() {
+function appStart() {
   if(!global.config) { 
     global.config = yamlConfig.load('./config.yml');
   }
@@ -36,4 +36,4 @@ function main() {
   });
 }
 
-main();
+appStart();

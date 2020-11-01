@@ -1,4 +1,4 @@
-export default function PriceTag({ currency, amount, decimals }) {
+export default function PriceTag({ currency = 'ARS', amount, decimals }) {
   const price = new Intl.NumberFormat('es-AR', {
     style: 'currency',
     currency,
