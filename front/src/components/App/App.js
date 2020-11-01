@@ -1,3 +1,4 @@
+import Home from '../Home';
 import Header from '../Header';
 import SearchResultsContainer from '../SearchResultsContainer';
 import ProductDetailsContainer from '../ProductDetailsContainer';
@@ -11,7 +12,7 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            <span>Inicio</span>
+            <Home />
           </Route>
           <Route path="/items/:id">
             <ProductDetailsContainer />

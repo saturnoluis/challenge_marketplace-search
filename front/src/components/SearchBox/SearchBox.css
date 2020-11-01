@@ -1,6 +1,6 @@
 .SearchBox {
     display: flexbox;
-    width: 60%;
+    width: 50%;
 }
 
 .SearchBox__input {
