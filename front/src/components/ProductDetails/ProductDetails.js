@@ -10,28 +10,31 @@ export default function ProductDetails({ loading, details }) {
   }
 
   return (
-    <article id={getItem('id')} className="ProductDetails">
-      <div className="column--left">
-        <i>
-          {getItem('condition') === 'new' ? 'Nuevo' : 'Usado'}
-          -
-          {getItem('sold_quantity')} vendidos
+    <article id={getItem('id')} className="productDetails">
+      <div className="productDetails__column--wide">
+        <figure className="productDetails__picture">
+          <img src={getItem('picture')} alt={getItem('title')} />
+        </figure>
+        <h2>Descripción del producto</h2>
+        <p className="productDetails__description">
+          {getItem('description')}
+        </p>
+      </div>
+      <div className="productDetails__column--narrow">
+        <i className="productDetails__condition">
+          {getItem('condition') === 'new' ? 'Nuevo ' : 'Usado '}
+          - {getItem('sold_quantity')} vendidos
         </i>
-        <h1>{getItem('title')}</h1>
+        <h1 className="productDetails__title">{getItem('title')}</h1>
         <PriceTag
+          className="productDetails__price"
           currency={getItem('price.currency')}
           amount={getItem('price.amount')}
           decimals={getItem('price.decimals')}
         />
-        <button className="button--buy">Comprar</button>
-      </div>
-      <div className="column--right">
-        <figure>
-          <img src={getItem('picture')} alt={getItem('title')} />
-        </figure>
-        <p>
-          {getItem('description')}
-        </p>
+        <button className="productDetails__button--buy">
+          Comprar ahora
+        </button>
       </div>
     </article>
   );

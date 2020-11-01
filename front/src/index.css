@@ -8,16 +8,18 @@ body {
 
   --views-width: 960px;
 
-  --main-text-color: #000000;
+  --primary-text-color: #000000;
   --secondary-text-color: #666666;
+  --alternative-text-color: #ffffff;
 
-  --main-bg-color: #ffffff;
+  --primary-bg-color: #ffffff;
   --secondary-bg-color: #eeeeee;
   
-  --main-border-color: #eeeeee;
+  --primary-border-color: #eeeeee;
   --secondary-border-color: #d5d5d5;
 
-  --meli-yellow: #fee600
+  --meli-yellow: #fee600;
+  --meli-blue: #3483fa;
 }
 
 code {
