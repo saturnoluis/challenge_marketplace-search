@@ -1,5 +1,5 @@
 import Breadcrumb from '../Breadcrumb';
-import Items from '../Items';
+import ProductList from '../ProductList';
 import './SearchResults.css';
 
 const searchResultsFallback = {
@@ -19,7 +19,7 @@ export default function SearchResults(props) {
   return (
     <div className="SearchResults">
       <Breadcrumb trail={searchResults.categories} />
-      <Items items={searchResults.items} />
+      <ProductList items={searchResults.items} />
     </div>
   );
 }

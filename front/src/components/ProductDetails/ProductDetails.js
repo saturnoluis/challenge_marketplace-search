@@ -27,7 +27,7 @@ export default function ProductDetails({ loading, details }) {
       </div>
       <div className="column--right">
         <figure>
-          <img src={getItem('picture')} />
+          <img src={getItem('picture')} alt={getItem('title')} />
         </figure>
         <p>
           {getItem('description')}
