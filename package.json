@@ -7,11 +7,9 @@
     "install:front": "cd ./front && npm install",
     "install:back": "cd ./back && npm install",
     "install": "npm run install:back & npm run install:front",
-
     "start:front": "cd ./front && npm run start",
     "start:back": "cd ./back && npm run start",
     "start": "npm run start:back & npm run start:front",
-
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
