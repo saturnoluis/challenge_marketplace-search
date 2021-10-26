@@ -1,7 +1,7 @@
 {
-  "name": "ml-challenge",
+  "name": "challenge_marketplace-search",
   "version": "1.0.0",
-  "description": "Mercadolibre challenge",
+  "description": "Challenge made during the hiring process of MercadoLibre",
   "main": "index.js",
   "scripts": {
     "install:front": "cd ./front && npm install",
