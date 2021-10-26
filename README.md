@@ -1,6 +1,6 @@
 # Challenge: Marketplace Search
 
-This is the challenge that I made as part of hiring process with [MercadoLibre](https://www.mercadolibre.com.ar/).
+This is the challenge that I made as part of the hiring process with [MercadoLibre](https://www.mercadolibre.com.ar/).
 
 It consist on a web application that displays a search field in the header of the home page, searching for a product (i.e. "iphone") triggers a request for products that match the search term, displays the list of results, and allow the user to click on a product to see the details.
 
@@ -29,6 +29,7 @@ The node server starts at port localhost:4000
 The front application starts at port localhost:3000
 
 # Preview
+![localhost_3000_items_MLA914482289](https://user-images.githubusercontent.com/14167280/138793364-bcffca3c-8d62-461e-8ba7-4dee4fefe64c.png)
 
 
 
