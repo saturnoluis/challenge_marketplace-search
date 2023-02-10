@@ -18,6 +18,8 @@ To start run the following command from the root folder:
 npm start
 ```
 
+*Note: If you have any problem during the install, please use node v16 since that was the version used during the creation of this project.*
+
 ## Folder structure
 
 The project is divided into two folders:
